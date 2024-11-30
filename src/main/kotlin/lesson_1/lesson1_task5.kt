@@ -1,7 +1,9 @@
 package org.example.lesson_1
 
+const val x = 60
+
 fun main() {
-    val x = 60
+
     val seconds = 6480
     val minute = seconds / x
     val hour = minute / x
