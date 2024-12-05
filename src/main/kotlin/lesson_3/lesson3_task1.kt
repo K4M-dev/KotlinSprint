@@ -3,14 +3,14 @@ package org.example.lesson_3
 fun main() {
 
     val userName = "User"
-    val greetingMorning = "Доброе утро!"
-    val greetingEvening = "Добрый вечер!"
+    val greetingMorning = "Доброе утро"
+    val greetingEvening = "Добрый вечер"
 
-    var greeting = "$greetingMorning, $userName"
+    var greeting = "$greetingMorning, $userName!"
 
     println(greeting)
 
-    greeting = "$greetingEvening, $userName"
+    greeting = "$greetingEvening, $userName!"
 
     println(greeting)
 
