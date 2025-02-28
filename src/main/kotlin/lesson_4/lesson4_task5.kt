@@ -20,9 +20,12 @@ fun main() {
 
     val weatherCondition: Boolean = readln().toBoolean()
 
-    val statusSailing = ((!damage && (crew >= 55) && (crew <= 70) && (weatherCondition or !weatherCondition))
-            || (damage && (crew == 70) && weatherCondition)) && (numberBoxes > 50)
+    val statusSailing = ((!damage && (crew >= MIN_CREW) && (crew <= MAX_CREW) && (weatherCondition || !weatherCondition))
+            || (damage && (crew == MAX_CREW) && weatherCondition)) && (numberBoxes > MIN_NUM_BOXES)
 
     println("Возможна ли отправка корабля в плавание? $statusSailing")
 
 }
+const val MIN_CREW = 55
+const val MAX_CREW = 70
+const val MIN_NUM_BOXES = 50
