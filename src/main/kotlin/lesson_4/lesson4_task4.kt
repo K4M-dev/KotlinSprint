@@ -6,18 +6,14 @@ fun main() {
 
     val day = readln().toInt()
 
-    val dayValidation = (day / 2 == 1)
+    val dayValidation = (day % 2 == 0)
 
-    val handGroup = !(dayValidation)
-    val footGroup = dayValidation
-    val backGroup = dayValidation
-    val pressGroup = !(dayValidation)
-
-    println("""
-        Упражнения для рук: $handGroup
-        Упражнения для ног: $footGroup
-        Упражнения для спины: $backGroup
-        Упражнения для пресса: $pressGroup
+    println(
+        """
+        Упражнения для рук: ${!dayValidation}
+        Упражнения для ног: $dayValidation
+        Упражнения для спины: $dayValidation
+        Упражнения для пресса: ${!dayValidation}
     """.trimIndent())
 
 }
