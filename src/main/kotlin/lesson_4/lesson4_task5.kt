@@ -25,12 +25,17 @@ fun main() {
     val isCrewValid = crew in MIN_CREW..MAX_CREW
     val enoughBoxes = numberBoxes > MIN_NUM_BOXES
 
-    val statusSailing = ((!trueDamage && isCrewValid && (isWeatherGood || !isWeatherGood))
-            || (trueDamage && (crew == MAX_CREW) && isWeatherGood)) && enoughBoxes
+    val statusSailing = (((trueDamage == DAMAGE_ABSENT) && isCrewValid
+            && ((isWeatherGood == WEATHER_GOOD) || (isWeatherGood == WEATHER_BAD)))
+            || ((trueDamage == DAMAGE_PRESENT) && (crew == MAX_CREW) && (isWeatherGood == WEATHER_GOOD))) && enoughBoxes
 
     println("Возможна ли отправка корабля в плавание? $statusSailing")
 
 }
+const val DAMAGE_PRESENT = true
+const val DAMAGE_ABSENT = false
+const val WEATHER_GOOD = true
+const val WEATHER_BAD = false
 const val MIN_CREW = 55
 const val MAX_CREW = 70
 const val MIN_NUM_BOXES = 50
