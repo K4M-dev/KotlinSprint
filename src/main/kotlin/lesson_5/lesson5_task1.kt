@@ -5,9 +5,11 @@ fun main() {
 
     val userNumber = readln().toInt()
 
-    if (userNumber == 3 + 7) {
+    if (userNumber == FIRST_TERM + SEC_TERM) {
         println("Добро пожаловать!")
     } else {
         println("Доступ запрещён")
     }
 }
+const val FIRST_TERM = 3
+const val SEC_TERM = 7
