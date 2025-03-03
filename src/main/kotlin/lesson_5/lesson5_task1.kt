@@ -1,7 +1,7 @@
 package org.example.lesson_5
 
 fun main() {
-    println("Сложите два числа: 3 и 7")
+    println("Сложите два числа: $FIRST_TERM и $SEC_TERM")
 
     val userNumber = readln().toInt()
 
