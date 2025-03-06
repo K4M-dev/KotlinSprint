@@ -17,8 +17,8 @@ fun main() {
 
     val categoryValid = when {
         imt < MIN_IMT -> "Недостаточная масса тела"
-        imt in MIN_IMT..NORMAL_IMT -> "Нормальная масса тела"
-        imt in NORMAL_IMT..MAX_IMT -> "Избыточная масса тела"
+        (imt >= MIN_IMT) && (imt < NORMAL_IMT) -> "Нормальная масса тела"
+        (imt >= NORMAL_IMT) && (imt < MAX_IMT) -> "Избыточная масса тела"
         else -> "Ожирение"
     }
 
