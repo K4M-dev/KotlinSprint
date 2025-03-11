@@ -8,7 +8,7 @@ fun main() {
     val fullSeconds = seconds
 
     while (seconds > 0) {
-        println("Секунд осталось ${seconds--}")
+        seconds--
         Thread.sleep(1000)
     }
 
