@@ -1,8 +1,10 @@
 package org.example.lesson_6
 
+import kotlin.random.Random
+
 fun main() {
 
-    val winNumber = readln().toInt()
+    val winNumber = Random.nextInt(1, 10)
 
     var attempts = 5
 
