@@ -4,13 +4,12 @@ fun main() {
 
     println("Введите кол-во секунд которое нужно засечь")
 
-    var seconds = readln().toInt()
-    val fullSeconds = seconds
+    val seconds = readln().toInt()
 
-    while (seconds > 0) {
-        seconds--
-        Thread.sleep(1000)
-    }
+    val millis = (seconds * SECONDS_TO_MILLIS).toLong()
 
-    println("Прошло $fullSeconds секунд")
+    Thread.sleep(millis)
+
+    println("Прошло $seconds секунд")
 }
+const val SECONDS_TO_MILLIS = 1000
