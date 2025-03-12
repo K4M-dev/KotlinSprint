@@ -15,11 +15,11 @@ fun main() {
             println("Добро пожаловать!")
             return
         } else (println("Неверно! Осталось попыток: ${--attempts}"))
-    } while (attempts > ZERO_ATTEMPTS)
+    } while (attempts > ZERO_ATTEMPT)
 
     println("Доступ запрещен")
 }
 
-const val ZERO_ATTEMPTS = 0
+const val ZERO_ATTEMPT = 0
 
 
