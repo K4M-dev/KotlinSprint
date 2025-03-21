@@ -2,20 +2,9 @@ package org.example.lesson_8
 
 fun main() {
 
-    println("Введите количество ингредиентов")
+    println("Введите количество ингредиентов, после этого вводите ингридиенты по одному")
 
-    val quantityOfIngredients = readln().toInt()
-
-    val arrayOfIngredients: Array<String> = Array(quantityOfIngredients) { DEFAULT_VALUE }
-
-    for (i in arrayOfIngredients) {
-        println("Введите ингредиент ${arrayOfIngredients.indexOf(i) + UNIT_SERIAL_NUMBER}")
-        val ingredient = readln().toString()
-        arrayOfIngredients[arrayOfIngredients.indexOf(i)] = ingredient
-    }
+    val arrayOfIngredients = Array(readln().toInt()) { readln() }
 
     println("Ингредиенты: ${arrayOfIngredients.joinToString(", ")}")
 }
-
-const val DEFAULT_VALUE = "default"
-const val UNIT_SERIAL_NUMBER = 1
