@@ -10,18 +10,20 @@ fun main() {
 
     val changeIngredient = readln().toString()
 
-    for (i in arrayOfIngredients) {
-        if (changeIngredient in arrayOfIngredients) {
-            println("Введите ингредиент, которым хотели бы заменить предыдущий")
-            val newChange = readln().toString()
-            arrayOfIngredients[arrayOfIngredients.indexOf(i)] = newChange
-            println("Готово! Вы сохранили следующий список: ${arrayOfIngredients.joinToString(", ")}")
-            return
-        } else {
-            println("Такого ингредиента в списке нет")
-            return
-        }
+    val index = arrayOfIngredients.indexOf(changeIngredient)
 
+    if (index != UNIT_COMPARISON) {
+        println("Введите ингредиент, которым хотели бы заменить предыдущий")
+        val newChange = readln().toString()
+        arrayOfIngredients[index] = newChange
+        println("Готово! Вы сохранили следующий список: ${arrayOfIngredients.joinToString(", ")}")
+        return
+    } else {
+        println("Такого ингредиента в списке нет")
+        return
     }
 
+
 }
+
+const val UNIT_COMPARISON = -1
