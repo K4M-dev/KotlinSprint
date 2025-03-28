@@ -3,15 +3,14 @@ package org.example.lesson_9
 fun main() {
     println("Введите пять ингредиентов")
 
-    val ingredientsList = mutableListOf<String>()
+    val ingredientsSet = mutableSetOf<String>()
 
     do {
         val ingredient = readln()
-        ingredientsList.add(ingredient)
-    } while (ingredientsList.size < MIN_SIZE_LIST)
+        ingredientsSet.add(ingredient)
+    } while (ingredientsSet.size < MIN_SIZE_LIST)
 
-    val uniqueList = ingredientsList.distinct()
-    val sortedUniqueList = uniqueList.sorted()
+    val sortedUniqueList = ingredientsSet.sorted()
     val firstWord = sortedUniqueList.firstOrNull()
     val finalList = sortedUniqueList.drop(1)
 
