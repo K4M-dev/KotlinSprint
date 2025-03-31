@@ -14,11 +14,11 @@ fun main() {
 
 }
 
-fun checkLength(login: String?, pass: String?) {
-    val passLength = pass?.length
-    val loginLength = login?.length
+fun checkLength(login: String, pass: String) {
+    val passLength = pass.length
+    val loginLength = login.length
 
-    if ((passLength!! < MIN_LENGTH) || (loginLength!! < MIN_LENGTH)) {
+    if ((passLength < MIN_LENGTH) || (loginLength < MIN_LENGTH)) {
         print("Логин или пароль недостаточно длинные")
     } else (println("Добро пожаловать!"))
 
