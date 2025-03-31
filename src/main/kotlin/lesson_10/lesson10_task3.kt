@@ -7,13 +7,13 @@ fun main() {
     generatePass(passLength)
 }
 
-fun generatePass(passLength: Int?) {
+fun generatePass(passLength: Int) {
 
     val charPool = ('!'..'/') + (0..9) + (' ')
 
     val password = StringBuilder()
 
-    for (i in passLength!! downTo 1) {
+    for (i in passLength downTo  1) {
         val randomChar = charPool.random()
         password.append(randomChar)
     }
