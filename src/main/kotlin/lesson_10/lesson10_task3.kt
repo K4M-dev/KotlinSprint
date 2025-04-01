@@ -14,8 +14,7 @@ fun generatePass(passLength: Int) {
     val password = StringBuilder()
 
     for (i in passLength downTo  1) {
-        val randomChar = charPool.random()
-        password.append(randomChar)
+        password.append(charPool.random())
     }
     println(password)
 }
