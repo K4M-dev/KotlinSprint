@@ -5,12 +5,12 @@ import kotlin.random.Random
 fun main() {
 
     println("Ход человечества")
-    val peopleNumber = throwDice()
+    val peopleNumber = rollDice()
     println("Выпало число: $peopleNumber")
 
 
     println("Ход машин")
-    val roboNumber = throwDice()
+    val roboNumber = rollDice()
     println("Выпало число: $roboNumber")
 
     if (peopleNumber > roboNumber) {
@@ -21,6 +21,6 @@ fun main() {
 
 }
 
-fun throwDice(): Int = Random.nextInt(1, 6)
+fun rollDice(): Int = Random.nextInt(1, 6)
 
 
