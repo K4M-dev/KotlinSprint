@@ -7,19 +7,19 @@ fun main() {
     println("Введите пароль")
     val pass = readln()
 
-    val tokenAccess = authorization(login, pass)
-    goods(tokenAccess)
+    val tokenAccess = authorizeUser(login, pass)
+    showGoods(tokenAccess)
 }
 
-fun authorization(login: String, pass: String): String? {
+fun authorizeUser(login: String, pass: String): String? {
     return if ((login == LOGIN) && (pass == PASS)) {
-        token()
+        generateToken()
     } else {
         null
     }
 }
 
-fun token(): String {
+fun generateToken(): String {
     val tokenPool = ('A'..'Z') + (0..9) + ('a'..'z')
     val token = StringBuilder()
     for (i in TOKEN_LENGTH downTo 1) {
@@ -29,7 +29,7 @@ fun token(): String {
 
 }
 
-fun goods(tokenAccess: String?) {
+fun showGoods(tokenAccess: String?) {
     val listOfGoods = mutableListOf("Джинсы", "Кроссовки", "Носки", "Ремень")
 
     if (tokenAccess == null) {
