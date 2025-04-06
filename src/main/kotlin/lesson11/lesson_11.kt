@@ -1,5 +1,14 @@
 package org.example.lesson11
 
+class User(
+    val id: Int,
+    val login: String,
+    val pass: String,
+    val mail: String,
+) {
+
+}
+
 fun main() {
 
     val user1 = User(
@@ -26,3 +35,4 @@ fun main() {
     println(user2.pass)
     println(user2.mail)
 }
+
