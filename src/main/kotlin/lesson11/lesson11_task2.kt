@@ -35,7 +35,7 @@ fun main() {
         login = "admin",
         pass = "pass",
         mail = "adminmail@mail.ru",
-        bio = "clear"
+        bio = "clear",
     )
 
     user.addBio()
