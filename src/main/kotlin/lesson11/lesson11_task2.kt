@@ -3,12 +3,12 @@ package org.example.lesson11
 class User2(
     val id: Int,
     val login: String,
-    var pass: String,
+    var password: String,
     val mail: String,
-    var bio: String,
+    var bio: String = "",
 ) {
     fun displayInfo() {
-        println("Информация пользователя: $id, $login, $pass, $mail, $bio")
+        println("Информация пользователя: $id, $login, $password, $mail, $bio")
     }
 
     fun addBio() {
@@ -18,28 +18,23 @@ class User2(
 
     fun changePass() {
         println("Введите пароль")
-        val enterPass = readln()
-        if (enterPass == pass) {
+        val enterPassword = readln()
+        if (enterPassword == password) {
             println("Введите новый пароль")
-            pass = readln()
+            password = readln()
             println("Пароль изменён")
         }
     }
-
-
 }
 
 fun main() {
     val user = User2(
         id = 1,
         login = "admin",
-        pass = "pass",
+        password = "pass",
         mail = "adminmail@mail.ru",
-        bio = "clear",
     )
-
     user.addBio()
     user.changePass()
     user.displayInfo()
-
 }
