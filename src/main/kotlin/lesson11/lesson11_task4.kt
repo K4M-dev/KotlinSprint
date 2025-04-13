@@ -4,6 +4,8 @@ class Category(
     val id: Int,
     val namesOfCategory: String,
     val dishesInCategory: MutableList<String>,
+    val recipesInCategory: MutableList<Recipe>,
+    val imageUrl: String = "URL_image",
 )
 
 class Recipe(
@@ -13,6 +15,7 @@ class Recipe(
     val ingredients: MutableList<Ingredient>,
     var inFavorites: Boolean = false,
     val methodPreparation: String,
+    val imageRecipeUrl: String = "URL_image",
 ) {
     fun addInFavorites() {
         println("Рецепт блюда $dishNameRecipe добавлено в избраное")
@@ -28,4 +31,5 @@ class Recipe(
 class Ingredient(
     val nameOfIngredient: String,
     val quantityServing: Int,
+    val unit: String,
 )
