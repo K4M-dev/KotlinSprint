@@ -33,20 +33,12 @@ class Forum(
 class ForumMember(
     val userId: Int,
     val userName: String,
-) {
-    override fun toString(): String {
-        return "ForumMember(userId='$userId', userName='$userName')"
-    }
-}
+)
 
 class ForumMessage(
     val authorId: Int,
     val message: String,
-) {
-    override fun toString(): String {
-        return "ForumMember(authorId='$authorId', message='$message')"
-    }
-}
+)
 
 fun main() {
     val forum = Forum()
@@ -60,7 +52,6 @@ fun main() {
     forum.createNewMessage(user2.userId, "Fine, thank you")
 
     forum.printThread()
-
 }
 
 
