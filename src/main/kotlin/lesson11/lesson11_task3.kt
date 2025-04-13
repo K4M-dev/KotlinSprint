@@ -18,12 +18,17 @@ class Room(
         println("Пользователь ${member.nickName} добавлен в комнату $nameRoom")
     }
 
-    fun changeStatus(member: User) {
-        println("Пользователь с никнеймом: ${member.nickName} и статусом: ${member.status}")
-        println("Какой статус присвоить пользователю ${member.nickName}?")
-        member.status = readln()
+    fun changeStatus(nickName: String, newStatus: String) {
+        val member = members.find { it.nickName == nickName }
+        if (member != null) {
+            member.status = newStatus
+        }
+    }
+
+    fun printChangeStatus(member: User) {
         println("Статус пользователя ${member.nickName} изменён на ${member.status}")
     }
+
 }
 
 fun main() {
@@ -39,5 +44,6 @@ fun main() {
         userAvatar = "picture"
     )
     room1.addMember(user1)
-    room1.changeStatus(user1)
+    room1.changeStatus("user1", "молчит")
+    room1.printChangeStatus(user1)
 }
