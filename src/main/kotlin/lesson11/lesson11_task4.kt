@@ -3,8 +3,7 @@ package org.example.lesson11
 class Category(
     val id: Int,
     val namesOfCategory: String,
-    val dishesInCategory: MutableList<String>,
-    val recipesInCategory: MutableList<Recipe>,
+    val dishesInCategory: MutableList<Recipe>,
     val imageUrl: String = "URL_image",
 )
 
