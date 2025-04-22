@@ -1,6 +1,6 @@
 package org.example.lesson11
 
-class User(
+class UserLesson3(
     var id: Int,
     var nickName: String,
     var status: String, // "говорит", "микрофон выключен", "пользователь заглушен"
@@ -10,10 +10,10 @@ class User(
 class Room(
     var cover: String,
     var nameRoom: String,
-    val members: MutableList<User> = mutableListOf(),
+    val members: MutableList<UserLesson3> = mutableListOf(),
     val userAvatars: MutableList<String> = mutableListOf(),
 ) {
-    fun addMember(member: User) {
+    fun addMember(member: UserLesson3) {
         members.add(member)
         println("Пользователь ${member.nickName} добавлен в комнату $nameRoom")
     }
@@ -25,7 +25,7 @@ class Room(
         }
     }
 
-    fun printChangeStatus(member: User) {
+    fun printChangeStatus(member: UserLesson3) {
         println("Статус пользователя ${member.nickName} изменён на ${member.status}")
     }
 
@@ -37,7 +37,7 @@ fun main() {
         nameRoom = "Members",
     )
 
-    val user1 = User(
+    val user1 = UserLesson3(
         id = 1,
         nickName = "user1",
         status = "говорит",
