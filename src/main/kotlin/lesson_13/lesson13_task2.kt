@@ -3,9 +3,7 @@ package org.example.lesson_13
 class Directory2(val name: String, val phone: Long, val company: String? = null) {
 
     fun printInfo() {
-        if (company != null) {
-            println("Имя: $name \nНомер телефона: $phone \nКомпания: $company")
-        } else println("Имя: $name \nНомер телефона: $phone \nКомпания: <не указана>")
+        println("Имя: $name \nНомер телефона: $phone \nКомпания: ${company ?: "<не указано>"}")
     }
 }
 
