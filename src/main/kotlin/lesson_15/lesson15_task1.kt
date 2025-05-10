@@ -1,40 +1,60 @@
 package org.example.lesson_15
 
-interface Movable {
+interface Flight {
 
-    fun movement()
+    fun flight()
 }
 
-class Crucian() : Movable {
+interface Swimming {
+    
+    fun swim()
+}
 
-    override fun movement() {
+interface Walking {
+
+    fun walk()
+}
+
+class Crucian() : Swimming {
+
+    override fun swim() {
         println("Карась плывёт")
     }
 }
 
-class Seagull() : Movable {
+class Seagull() : Flight {
 
-    override fun movement() {
+    override fun flight() {
         println("Чайка летит")
     }
 }
 
-class Duck() : Movable {
+class Duck() : Walking,Flight,Swimming {
 
-    override fun movement() {
-        println("Утка ходит, плывёт, взлетает")
+    override fun swim() {
+        println("Утка плывёт")
+    }
+
+    override fun flight() {
+        println("Утка летит")
+    }
+
+    override fun walk() {
+        println("Утка ходит")
     }
 }
 
 fun main() {
 
     val crucian = Crucian()
-    crucian.movement()
+    crucian.swim()
 
     val seagull = Seagull()
-    seagull.movement()
+    seagull.flight()
 
     val duck = Duck()
-    duck.movement()
+    duck.swim()
+    duck.flight()
+    duck.walk()
 
 }
