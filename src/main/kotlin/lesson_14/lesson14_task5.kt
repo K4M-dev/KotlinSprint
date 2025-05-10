@@ -5,14 +5,23 @@ class Chat(
     val childMessages: MutableList<ChildMessage> = mutableListOf()
 ) {
 
+    var idCounter = START_COUNT
+
     fun addMessage(authorId: Int, authorName: String, messageText: String) {
-        val message = Message.createMessage(authorId, authorName, messageText)
+        val message = Message.createMessage(authorId, authorName, messageText, idCounter++)
+
+        if (messageList.any { it.authorId == message.authorId && it.messageText == message.messageText }) {
+            println("Это сообщение уже существует в списке.")
+            return
+        }
+
         messageList.add(message)
     }
 
     fun addMessageThread(parentMessageId: Int, authorId: Int, authorName: String, messageText: String) {
         if (messageList.any { it.messageId == parentMessageId }) {
-            val childMessage = ChildMessage.createChildMessage(authorId, authorName, messageText, parentMessageId)
+            val childMessage =
+                ChildMessage.createChildMessage(authorId, authorName, messageText, parentMessageId, idCounter++)
             childMessages.add(childMessage)
         } else {
             println("Родительское сообщение с id $parentMessageId не найдено.")
@@ -44,10 +53,8 @@ open class Message(
 ) {
 
     companion object {
-        var idCounter = START_COUNT
-        fun createMessage(authorId: Int, authorName: String, messageText: String): Message {
-            idCounter++
-            return Message(idCounter, authorName, messageText, authorId)
+        fun createMessage(authorId: Int, authorName: String, messageText: String, messageId: Int): Message {
+            return Message(authorId, authorName, messageText, messageId)
         }
     }
 }
@@ -62,15 +69,14 @@ class ChildMessage(
 ) : Message(authorId, authorName, messageText, messageId, parentMessageId) {
 
     companion object {
-        var idChildCounter = START_COUNT
         fun createChildMessage(
             authorId: Int,
             authorName: String,
             messageText: String,
-            parentMessageId: Int
+            parentMessageId: Int,
+            messageId: Int
         ): ChildMessage {
-            idChildCounter++
-            return ChildMessage(authorId, authorName, messageText, parentMessageId, idChildCounter)
+            return ChildMessage(authorId, authorName, messageText, parentMessageId, messageId)
         }
     }
 }
@@ -82,8 +88,8 @@ fun main() {
     chat.addMessage(1, "Alice", "Привет всем!")
     chat.addMessage(2, "Bob", "Привет, Alice!")
 
-    chat.addMessageThread(2, 1, "Alice", "Как дела?")
-    chat.addMessageThread(2, 2, "Bob", "Все хорошо, спасибо!")
+    chat.addMessageThread(1, 1, "Alice", "Как дела?")
+    chat.addMessageThread(1, 2, "Bob", "Все хорошо, спасибо!")
 
     chat.printChat()
 
