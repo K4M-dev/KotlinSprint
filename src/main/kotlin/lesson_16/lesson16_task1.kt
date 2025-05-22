@@ -1,17 +1,18 @@
 package org.example.lesson_16
 
-import kotlin.random.Random
+class NumberCube() {
 
-private class NumberCube() {
+    private val numberCube = (1..6).random()
 
-    private var numberCube = Random.nextInt(1, 6)
+    fun getNumberCube() {
 
-    fun getNumberCube() = numberCube
+        println(numberCube)
+    }
 }
 
 fun main() {
 
     val number = NumberCube()
 
-    println(number.getNumberCube())
+    number.getNumberCube()
 }
