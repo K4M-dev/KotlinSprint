@@ -1,30 +1,24 @@
 package org.example.lesson_16
 
 class Order(
-
     private val numberOfOrder: Int,
-    private var statusOfOrder: String,
 ) {
+    private var statusOfOrder: String = "В ожидании"
 
-    fun messageToManager() {
+    fun requestStatusChange(newStatusOfOrder: String) {
         println("Запрос менеджеру на смену заказа $numberOfOrder отправлен")
-
+        changeStatusOfOrder(newStatusOfOrder)
+        println("Статус заказа с номером $numberOfOrder изменён на $newStatusOfOrder")
     }
 
-    private fun changeStatusOfOrder() : String {
-        println("Статус заказа с номером $numberOfOrder изменён")
-        val newStatusOfOrder = "Готов к выдаче"
-        this.statusOfOrder = newStatusOfOrder
-        return statusOfOrder
+    private fun changeStatusOfOrder(newStatusOfOrder: String) {
+        statusOfOrder = newStatusOfOrder
     }
-
-    fun getChangeStatusOfOrder() = changeStatusOfOrder()
 }
 
 fun main() {
-    val order = Order(3213123, "Оплачен")
 
-    order.messageToManager()
-    order.getChangeStatusOfOrder()
+    val order = Order(3213123)
 
+    order.requestStatusChange("\"Оплачен\"")
 }
