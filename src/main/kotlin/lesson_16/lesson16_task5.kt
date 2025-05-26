@@ -15,11 +15,13 @@ class Player(
         } else println("Осталось здоровья $health")
     }
 
-    fun getHeal(): Int {
-        health += HEALING_FLASK
-        println("Игрок $name выпил лечебную колбу и получил +$HEALING_FLASK hp")
-        println("Здровья $health hp")
-        return health
+    fun getHeal(): Any {
+        return if (health > 0) {
+            health += HEALING_FLASK
+            println("Игрок $name выпил лечебную колбу и получил +$HEALING_FLASK hp")
+            println("Здровья $health hp")
+            health
+        } else println("Игрок мёртв, лечение невозможно")
     }
 
     private fun death(): String {
@@ -33,7 +35,7 @@ fun main() {
 
     val player1 = Player("Arthas", 100, 50)
 
-    player1.receiveDamage(40)
+    player1.receiveDamage(100)
     player1.getHeal()
     player1.receiveDamage(100)
 }
