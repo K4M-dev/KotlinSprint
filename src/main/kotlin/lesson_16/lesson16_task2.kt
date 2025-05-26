@@ -7,7 +7,6 @@ class Circle(private val radius: Double) {
     fun getCircumference(): Double = 2 * PI * radius
 
     fun getArea(): Double = PI * radius.pow(2.0)
-
 }
 
 fun main() {
@@ -18,4 +17,4 @@ fun main() {
     println(circle.getArea())
 }
 
-const val PI = 3.14
+private const val PI = 3.14
