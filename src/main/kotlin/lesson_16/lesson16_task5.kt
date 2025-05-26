@@ -2,19 +2,20 @@ package org.example.lesson_16
 
 class Player(
     private val name: String,
-    internal var health: Int,
+    private var health: Int,
     private var attackPower: Int,
 ) {
 
-    fun damage(): Int {
-        val enemyAttackPower = 90
-        println("Игроку $name нанесено $enemyAttackPower урона")
-        health -= enemyAttackPower
-        println("Осталось здоровья $health")
-        return health
+    fun receiveDamage(damageAmount: Int) {
+        health -= damageAmount
+        println("Игроку $name нанесено $damageAmount урона")
+
+        if (health <= 0) {
+            println(death())
+        } else println("Осталось здоровья $health")
     }
 
-    fun healing(): Int {
+    fun getHeal(): Int {
         health += HEALING_FLASK
         println("Игрок $name выпил лечебную колбу и получил +$HEALING_FLASK hp")
         println("Здровья $health hp")
@@ -23,24 +24,18 @@ class Player(
 
     private fun death(): String {
         attackPower = 0
+        health = 0
         return "Игрок $name погиб в бою"
     }
-
-    fun getDeath() = println(death())
 }
 
 fun main() {
 
     val player1 = Player("Arthas", 100, 50)
 
-    player1.damage()
-    player1.healing()
-    player1.damage()
-
-    if (player1.health <= 0) {
-        player1.getDeath()
-    }
-
+    player1.receiveDamage(40)
+    player1.getHeal()
+    player1.receiveDamage(100)
 }
 
 const val HEALING_FLASK = 40
