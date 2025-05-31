@@ -15,8 +15,8 @@ class Player(
         } else println("Осталось здоровья $health")
     }
 
-    fun getHeal(): Any {
-        return if (health > 0) {
+    fun getHeal() {
+        if (health > 0) {
             health += HEALING_FLASK
             println("Игрок $name выпил лечебную колбу и получил +$HEALING_FLASK hp")
             println("Здровья $health hp")
