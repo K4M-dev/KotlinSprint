@@ -8,9 +8,11 @@ class ShipLes17(
     val _name: String
         get() = name
 
-    fun changeName(newName: String) {
-        println("Имя корабля менять нельзя. Текущее имя: $_name")
-    }
+    var errorChange: String
+        get() = _name
+        set(value) {
+            println("Имя корабля менять нельзя. Текущее имя: $_name")
+        }
 }
 
 fun main() {
@@ -19,5 +21,5 @@ fun main() {
 
     println("Имя корабля: ${ship1._name}")
 
-    ship1.changeName("Корабль2")
+    ship1.errorChange = "Корабль2"
 }
