@@ -11,7 +11,7 @@ open class GamingDice {
 }
 
 class SmallDice(
-    private val edges: Int,
+    private val edges: Int = 4,
 ) : GamingDice() {
     override fun getDiceResult() {
         val result = Random.nextInt(FIRST_EDGE, edges)
@@ -20,7 +20,7 @@ class SmallDice(
 }
 
 class MediumDice(
-    private val edges: Int,
+    private val edges: Int = 6,
 ) : GamingDice() {
     override fun getDiceResult() {
         val result = Random.nextInt(FIRST_EDGE, edges)
@@ -29,7 +29,7 @@ class MediumDice(
 }
 
 class BigDice(
-    private val edges: Int,
+    private val edges: Int = 8,
 ) : GamingDice() {
     override fun getDiceResult() {
         val result = Random.nextInt(FIRST_EDGE, edges)
@@ -39,17 +39,11 @@ class BigDice(
 
 fun main() {
 
-    val dice4: GamingDice = SmallDice(
-        4
-    )
+    val dice4: GamingDice = SmallDice()
 
-    val dice6: GamingDice = MediumDice(
-        6
-    )
+    val dice6: GamingDice = MediumDice()
 
-    val dice8: GamingDice = BigDice(
-        8
-    )
+    val dice8: GamingDice = BigDice()
 
     val listOfDice = listOf<GamingDice>(dice4, dice6, dice8)
     showAllResults(listOfDice)
