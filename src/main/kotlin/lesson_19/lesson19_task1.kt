@@ -1,19 +1,14 @@
 package org.example.lesson_19
 
-enum class Fish {
-    GUPPY,
-    ANGELFISH,
-    GOLDFISH,
-    SIAMESE_FIGHTING_FISH;
+enum class Fish(private val displayName: String) {
+    GUPPY("Гуппи"),
+    ANGELFISH("Скалярия"),
+    GOLDFISH("Золотая рыбка"),
+    SIAMESE_FIGHTING_FISH("Петушок");
 
     fun getFishName(): String {
 
-        return when (this) {
-            GUPPY -> "Гуппи"
-            ANGELFISH -> "Скалярия"
-            GOLDFISH -> "Золотая рыбка"
-            SIAMESE_FIGHTING_FISH -> "Петушок"
-        }
+        return displayName
     }
 }
 
