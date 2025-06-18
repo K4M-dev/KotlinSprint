@@ -15,5 +15,4 @@ fun main() {
     val word = "hello"
 
     println(word.vowelCount())
-
 }
