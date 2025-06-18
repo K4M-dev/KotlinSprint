@@ -16,5 +16,4 @@ fun main() {
     println("Текущее здоровье ${player1.currentHP} hp")
 
     println(player1.isHealthy())
-
 }
