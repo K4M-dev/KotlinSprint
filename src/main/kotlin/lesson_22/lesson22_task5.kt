@@ -18,9 +18,8 @@ fun main() {
         4.37,
     )
 
-    val (name, description, date, distance) = alphaCentauri
-    println(name)
-    println(description)
-    println(date)
-    println(distance)
+    println(alphaCentauri.component1())
+    println(alphaCentauri.component2())
+    println(alphaCentauri.component3())
+    println(alphaCentauri.component4())
 }
